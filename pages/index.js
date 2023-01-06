@@ -49,13 +49,20 @@ const Home = () => {
     <main className='flex items-center h-screen max-w-md px-8 mx-auto'>
       {user ? (
         <div>
-          <span className=''>
+          <h1 className='text-3xl font-bold '>
+            <span className='text-blue-500'>SMS</span> Authentication Module
+            using{' '}
+            <a className='text-emerald-400' href='https://supabase.com/'>
+              Supabase
+            </a>
+          </h1>
+          <p className='my-8 text-gray-500'>
             You are logged in with
-            <span className='font-bold'> +{user.phone}</span>
-          </span>
+            <span className='font-bold text-black'> +{user.phone}</span>
+          </p>
 
           <button
-            className='w-full py-3 my-8 font-medium text-white rounded-lg bg-rose-500'
+            className='w-full py-3 font-medium text-white bg-blue-500 rounded-lg'
             onClick={async () => {
               await supabase.auth.signOut();
               setUser(null);
@@ -78,7 +85,7 @@ const Home = () => {
                   onChange={(e) => setForm({ ...form, token: e.target.value })}
                 />
                 <button
-                  className='w-full py-3 my-8 font-medium text-white rounded-lg bg-rose-500'
+                  className='w-full py-3 my-8 font-medium text-white bg-blue-500 rounded-lg'
                   onClick={() => otpVerify(form)}
                   type='submit'>
                   Verify
@@ -87,8 +94,12 @@ const Home = () => {
             </div>
           ) : (
             <div>
-              <h1 className='text-4xl font-bold'>
-                Sign up to keep ordering amazing book!
+              <h1 className='text-3xl font-bold '>
+                <span className='text-blue-500'>SMS</span> Authentication Module
+                using{' '}
+                <a className='text-emerald-400' href='https://supabase.com/'>
+                  Supabase
+                </a>
               </h1>
               <p className='my-8 text-gray-500'>
                 Add your phone number. We will send you a verification code so
@@ -103,7 +114,7 @@ const Home = () => {
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 />
                 <button
-                  className='w-full py-3 my-8 font-medium text-white rounded-lg bg-rose-500'
+                  className='w-full py-3 my-8 font-medium text-white bg-blue-500 rounded-lg'
                   onClick={() => otpLogin(form)}
                   type='submit'>
                   Send OTP
